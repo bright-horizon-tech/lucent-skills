@@ -12,13 +12,13 @@ export default function Pricing() {
             <span className="accent-text">Every need is different.</span>
           </h2>
           <p className="lede" data-reveal>
-            So we don&apos;t do fixed packages. Your quote is built from
-            scratch around what you&apos;re actually creating — your SKUs,
-            your formats, your timeline — and you get the most affordable
-            rate for that exact scope. Nothing padded, nothing wasted.
+            We don&apos;t do fixed packages. Your quote is built from scratch
+            around what you&apos;re actually creating — your SKUs, formats,
+            timeline, and level of production.{' '}
+            <b>You pay for the scope you need, nothing padded, nothing wasted.</b>
           </p>
           <a className="pricing-link" href="#/pricing" data-reveal>
-            See how pricing works
+            See how pricing works →
           </a>
         </div>
       </div>

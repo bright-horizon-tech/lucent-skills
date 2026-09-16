@@ -4,22 +4,30 @@ interface PricingPageProps {
   onContact: () => void;
 }
 
-const CATEGORIES = [
+const STARTING_POINTS = [
   {
     name: 'Product Visuals',
+    price: '₹250',
+    unit: '/ visual',
     desc: 'Clean product imagery, lifestyle scenes, campaign-ready compositions and e-commerce assets.',
   },
   {
     name: 'Ad Creatives',
+    price: '₹250',
+    unit: '/ creative',
     desc: 'Static ads and campaign visuals built around your product, offer or campaign concept.',
   },
   {
     name: 'Carousels & Content Sets',
+    price: '₹999',
+    unit: '/ set',
     desc: 'Multi-frame product stories, educational carousels and social content systems.',
   },
   {
     name: 'Larger Catalogues',
-    desc: 'Multiple SKUs, recurring production, large visual batches or ongoing brand work.',
+    price: null,
+    unit: null,
+    desc: 'For multiple SKUs, recurring production, large visual batches or ongoing brand work.',
   },
 ];
 
@@ -63,15 +71,15 @@ export default function PricingPage({ onContact }: PricingPageProps) {
             Pricing
           </span>
           <h1 data-reveal>
-            Custom quotes.
+            We quote around
             <br />
-            <span className="accent-text">Always the most affordable.</span>
+            <span className="accent-text">your actual project.</span>
           </h1>
           <p className="lede" data-reveal>
-            Every client is different, every need is different — so every
-            quote is built from scratch around what you&apos;re creating.
-            No packages to squeeze into, no rates to bargain down, no paying
-            for what you don&apos;t need.
+            Every client is different, every need is different. Your quote is
+            built from scratch around what you&apos;re actually creating —
+            your SKUs, formats, timeline, and level of production. You pay
+            for the scope you need, nothing padded, nothing wasted.
           </p>
         </div>
       </section>
@@ -79,14 +87,21 @@ export default function PricingPage({ onContact }: PricingPageProps) {
       <section className="pricing-page-cats">
         <div className="container">
           <p className="pricing-ballpark" data-reveal>
-            What we quote for
+            Here&apos;s what that generally starts at
           </p>
           <div className="sp-grid" data-stagger>
-            {CATEGORIES.map((c) => (
-              <article className="sp-card" key={c.name}>
-                <span className="sp-tag">Custom quote</span>
-                <h4 className="sp-name">{c.name}</h4>
-                <p className="sp-desc">{c.desc}</p>
+            {STARTING_POINTS.map((sp) => (
+              <article className="sp-card" key={sp.name}>
+                <h4 className="sp-name">{sp.name}</h4>
+                {sp.price ? (
+                  <div className="sp-price">
+                    From <b>{sp.price}</b>
+                    <span>{sp.unit}</span>
+                  </div>
+                ) : (
+                  <div className="sp-price sp-price-custom">Custom quote</div>
+                )}
+                <p className="sp-desc">{sp.desc}</p>
               </article>
             ))}
           </div>
@@ -98,7 +113,8 @@ export default function PricingPage({ onContact }: PricingPageProps) {
           <div className="brief-quote" data-reveal>
             <div className="brief-copy">
               <h3>
-                Your brief <span className="brief-arrow">→</span> our quote
+                Tell us what you&apos;re making <span className="brief-arrow">→</span>{' '}
+                we&apos;ll quote it
               </h3>
               <p className="brief-lede">For a proper quote, send us:</p>
               <ul className="brief-list">
@@ -108,7 +124,7 @@ export default function PricingPage({ onContact }: PricingPageProps) {
               </ul>
               <p className="brief-out">
                 We&apos;ll come back with a scope and quote tailored to the
-                project — the most affordable rate for what you actually need.
+                project — the scope you need, nothing padded, nothing wasted.
               </p>
             </div>
             <div className="brief-cta">
@@ -127,9 +143,9 @@ export default function PricingPage({ onContact }: PricingPageProps) {
           </div>
 
           <p className="pricing-fine" data-reveal>
-            We don&apos;t publish fixed rates because every project scopes
-            differently. You always get the most affordable quote for your
-            exact scope, complexity, volume and turnaround.
+            Listed prices are indicative starting points, not fixed package
+            rates. Final pricing depends on scope, complexity, volume and
+            turnaround.
           </p>
         </div>
       </section>
