@@ -1873,6 +1873,198 @@ html[data-mode="brand"] .world-card:hover .world-enter {
   .price-val { text-align: left; }
 }
 
+/* ---------- Starting points grid (custom-quote pricing) ---------- */
+.pricing-ballpark {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+  margin: 3.2rem 0 1.6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 4.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sp-card {
+  border: 1px solid rgba(79, 79, 70, 0.14);
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem;
+  background: rgba(255, 252, 240, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease), background-color 0.4s;
+}
+
+.sp-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  background: #fff;
+}
+
+.sp-name {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+}
+
+.sp-price {
+  font-size: 0.85rem;
+  color: #6b6b62;
+  line-height: 1.3;
+}
+
+.sp-price b {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--charcoal);
+  letter-spacing: -0.02em;
+}
+
+.sp-price span {
+  font-size: 0.8rem;
+  color: #6b6b62;
+}
+
+.sp-price-custom {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.sp-desc {
+  font-size: 0.85rem;
+  color: #6b6b62;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+/* ---------- Your brief → our quote ---------- */
+.brief-quote {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  border: 1px solid rgba(79, 79, 70, 0.16);
+  border-radius: 24px;
+  padding: 2.8rem 3rem;
+  background: rgba(255, 252, 240, 0.6);
+  margin-bottom: 2.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.brief-copy h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+  margin-bottom: 1.2rem;
+}
+
+.brief-arrow {
+  color: var(--accent);
+  transition: color 0.5s;
+}
+
+.brief-lede {
+  font-size: 0.95rem;
+  color: #6b6b62;
+  margin-bottom: 1rem;
+}
+
+.brief-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.brief-list li {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  padding-left: 1.3rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.brief-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  transition: color 0.5s;
+}
+
+.brief-out {
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+
+.brief-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.brief-wa {
+  font-size: 0.82rem;
+  color: #6b6b62;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s;
+}
+
+.brief-wa:hover {
+  color: #1eb857;
+}
+
+/* ---------- Fine print ---------- */
+.pricing-fine {
+  font-size: 0.74rem;
+  color: #8a8a7f;
+  line-height: 1.6;
+  max-width: 62ch;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .sp-grid { grid-template-columns: 1fr 1fr; }
+  .brief-quote { grid-template-columns: 1fr; padding: 2.2rem 1.8rem; gap: 1.8rem; }
+  .brief-cta { align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .pricing-ballpark { margin: 2.4rem 0 1.2rem; font-size: 1.05rem; }
+  .sp-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 3rem; }
+  .sp-card { padding: 1.2rem 1rem; }
+  .sp-name { font-size: 0.88rem; }
+  .sp-price b, .sp-price-custom { font-size: 1.25rem; }
+  .sp-desc { font-size: 0.78rem; }
+  .brief-list { grid-template-columns: 1fr; }
+}
+
 /* ---------- WhatsApp CTA button (green) ---------- */
 .btn-wa {
   background: #25d366;
@@ -2736,6 +2928,28 @@ html[data-mode="brand"] .modal-eyebrow {
     padding: 2.8rem 1.6rem;
     border-radius: 24px;
   }
+
+  /* Denser glass on phones — keep the form readable over busy backgrounds */
+  .modal-backdrop {
+    background: rgba(24, 28, 16, 0.66);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+  }
+
+  .modal-glass-container {
+    background: rgba(58, 64, 38, 0.86);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+
+  .modal-glass-input {
+    background: rgba(255, 252, 240, 0.12);
+  }
+
+  .modal-card {
+    padding: 2.6rem 1.4rem 2.1rem;
+  }
 }
 
 /* ============================================================
@@ -3369,6 +3583,7 @@ footer {
   .process, .pricing, .testimonials, .whyus { padding: 5.5rem 0; }
   .cta { padding: 5.5rem 0; }
   .gallery { padding: 1rem 0 6rem; }
+  .gallery .container { padding: 0 0.7rem; }
   .steps { grid-template-columns: 1fr 1fr; gap: 1.7rem 1.1rem; }
   .step h4 { font-size: 1rem; }
   .step p { font-size: 0.78rem; }
@@ -3395,10 +3610,10 @@ footer {
   .collage-right { inset: -2% -20% -8% -22%; }
   /* Only 4 images on phones — smaller, framed around the glass card */
   .img-left-2, .img-left-4, .img-right-2, .img-right-4 { display: none; }
-  .img-left-1 { top: 3%; left: -3%; width: 46%; }
-  .img-left-3 { top: 55%; left: 5%; width: 42%; }
-  .img-right-1 { top: 1%; right: -3%; width: 44%; }
-  .img-right-3 { top: 57%; right: 4%; width: 46%; }
+  .img-left-1 { top: 3%; left: -11%; width: 44%; }
+  .img-left-3 { top: 55%; left: -6%; width: 40%; }
+  .img-right-1 { top: 1%; right: -11%; width: 42%; }
+  .img-right-3 { top: 57%; right: -6%; width: 44%; }
   .hero-glass-card {
     position: relative;
     z-index: 30;

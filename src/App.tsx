@@ -304,7 +304,7 @@ export default function App() {
                 <Marquee />
                 <Intro mode={mode} />
                 <WhyUs mode={mode} />
-                <Pricing mode={mode} onContact={() => setContactOpen(true)} />
+                <Pricing onContact={() => setContactOpen(true)} />
                 <Process mode={mode} />
                 <Gallery />
                 <Testimonials />
