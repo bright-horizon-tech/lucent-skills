@@ -1,5 +1,6 @@
-const p = (f: string) => `/assets/01-portrait/${f}.webp`;
-const s = (f: string) => `/assets/02-square/${f}.webp`;
+const base = import.meta.env.BASE_URL;
+const p = (f: string) => `${base}assets/01-portrait/${f}.webp`;
+const s = (f: string) => `${base}assets/02-square/${f}.webp`;
 
 export interface AssetItem {
   src: string;

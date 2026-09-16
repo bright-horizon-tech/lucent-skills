@@ -5,4 +5,4 @@ export function waLink(text?: string) {
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
 }
 
-export const WA_ICON = '/assets/WA%20Icon.svg';
+export const WA_ICON = `${import.meta.env.BASE_URL}assets/WA%20Icon.svg`;
