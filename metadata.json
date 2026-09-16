@@ -1,0 +1,6 @@
+{
+  "name": "Lucent Stills",
+  "description": "White-label AI visual production studio for high-end static imagery and brand campaigns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
