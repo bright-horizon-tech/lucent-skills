@@ -81,6 +81,10 @@ export default function PricingPage({ onContact }: PricingPageProps) {
             your SKUs, formats, timeline, and level of production. You pay
             for the scope you need, nothing padded, nothing wasted.
           </p>
+          <p className="lede pricing-pledge" data-reveal>
+            Every client is different — and so should the price be.{' '}
+            <b>You don&apos;t get charged for a quote built for someone else&apos;s project.</b>
+          </p>
         </div>
       </section>
 

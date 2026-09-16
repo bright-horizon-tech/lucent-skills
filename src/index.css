@@ -2117,6 +2117,11 @@ html[data-mode="brand"] .world-card:hover .world-enter {
   max-width: 62ch;
 }
 
+.pricing-pledge {
+  margin-top: 1.2rem;
+  color: var(--charcoal);
+}
+
 .pricing-page-cats {
   padding: 2.5rem 0 1.5rem;
 }
