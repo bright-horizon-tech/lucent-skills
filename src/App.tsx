@@ -14,6 +14,7 @@ import Marquee from './components/Marquee';
 import Intro from './components/Intro';
 import WhyUs from './components/WhyUs';
 import Pricing from './components/Pricing';
+import PricingPage from './components/PricingPage';
 import Process from './components/Process';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
@@ -71,10 +72,12 @@ export default function App() {
 
   const isCaseStudy = route.startsWith('#/case-study');
   const caseSlug = route.split('/')[2] || 'aurorah';
+  const isPricingPage = route.startsWith('#/pricing');
+  const isSubPage = isCaseStudy || isPricingPage;
 
-  // Smooth scrolling (native scroll on the case-study page — no smoother there)
+  // Smooth scrolling (native scroll on sub pages — no smoother there)
   useEffect(() => {
-    if (isCaseStudy) {
+    if (isSubPage) {
       setSmoother(null);
       return;
     }
@@ -91,7 +94,7 @@ export default function App() {
       smoother.kill();
       setSmoother(null);
     };
-  }, [isCaseStudy]);
+  }, [isSubPage]);
 
   // Scroll-driven reveals — re-checked when the route swaps page content
   useEffect(() => {
@@ -130,7 +133,7 @@ export default function App() {
     });
 
     // Hero collage entrance — each image arrives from its own angle and beat
-    if (!introStarted || isCaseStudy) return;
+    if (!introStarted || isSubPage) return;
     gsap.utils.toArray<HTMLElement>('.img-wrapper').forEach((el, i) => {
       if (el.dataset.heroDone) return;
       el.dataset.heroDone = '1';
@@ -167,8 +170,8 @@ export default function App() {
 
   // Preloader finish -> world gate (shutter stays closed until a world is picked)
   const handlePreloaderFinish = useCallback(() => {
-    if (window.location.hash.startsWith('#/case-study')) {
-      // no gate on the case-study page — open straight onto it
+    if (isSubPage) {
+      // no gate on sub pages — open straight onto them
       setIrisOpen(1);
       setShutterVisible(false);
       return;
@@ -286,6 +289,9 @@ export default function App() {
       {isCaseStudy ? (
         /* ---------- CASE STUDY PAGES ---------- */
         <CaseStudy slug={caseSlug} onContact={() => setContactOpen(true)} />
+      ) : isPricingPage ? (
+        /* ---------- PRICING PAGE ---------- */
+        <PricingPage onContact={() => setContactOpen(true)} />
       ) : (
         /* ---------- LANDING PAGE ---------- */
         <>
@@ -304,7 +310,7 @@ export default function App() {
                 <Marquee />
                 <Intro mode={mode} />
                 <WhyUs mode={mode} />
-                <Pricing onContact={() => setContactOpen(true)} />
+                <Pricing />
                 <Process mode={mode} />
                 <Gallery />
                 <Testimonials />

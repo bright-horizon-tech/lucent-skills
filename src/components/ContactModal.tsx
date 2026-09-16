@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { Mode } from '../types';
+import { waLink } from '../whatsapp';
 
 interface ContactModalProps {
   open: boolean;
@@ -31,11 +32,13 @@ export default function ContactModal({ open, onClose, mode, onModeChange }: Cont
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Brief / Quote request — ${mode === 'agency' ? 'Agency' : 'Brand'}${name ? ` — ${name}` : ''}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nI am: ${mode === 'agency' ? 'An agency' : 'A brand'}\n\n${message}`
-    );
-    window.location.href = `mailto:studio@lucentstills.com?subject=${subject}&body=${body}`;
+    const text = [
+      `Hi Lucent Stills! I'm ${mode === 'agency' ? 'an agency' : 'a brand'} looking for product visuals.`,
+      name ? `\nName: ${name}` : '',
+      email ? `\nEmail: ${email}` : '',
+      `\n\nBrief: ${message}`,
+    ].join('');
+    window.open(waLink(text), '_blank', 'noopener,noreferrer');
     onClose();
   };
 
@@ -112,7 +115,7 @@ export default function ContactModal({ open, onClose, mode, onModeChange }: Cont
           </label>
           <div className="modal-actions">
             <button type="submit" className="btn btn-rust magnetic">
-              Send it over
+              Send it over on WhatsApp
             </button>
             <a className="modal-mail" href="mailto:studio@lucentstills.com">
               or write to studio@lucentstills.com directly

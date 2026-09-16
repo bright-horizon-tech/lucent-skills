@@ -2065,6 +2065,80 @@ html[data-mode="brand"] .world-card:hover .world-enter {
   .brief-list { grid-template-columns: 1fr; }
 }
 
+/* ---------- Landing pricing teaser + separate pricing page ---------- */
+.pricing-link {
+  display: inline-block;
+  margin-top: 2.2rem;
+  padding: 0.55rem 1.2rem;
+  border: 1.5px solid rgba(79, 79, 70, 0.35);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: transparent;
+  transition: border-color 0.35s var(--ease), color 0.35s, background-color 0.35s, transform 0.35s var(--ease);
+}
+
+.pricing-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.sp-tag {
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: 100px;
+  padding: 0.3rem 0.7rem;
+  transition: color 0.5s, border-color 0.5s;
+}
+
+.pricing-page-hero {
+  padding: 6.5rem 0 3.5rem;
+}
+
+.pricing-page-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 1.4rem 0 1.8rem;
+}
+
+.pricing-page-hero .lede {
+  max-width: 62ch;
+}
+
+.pricing-page-cats {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.pricing-page-brief {
+  padding: 2.5rem 0 6rem;
+}
+
+.pricing-page .pricing-fine {
+  margin-top: 0;
+}
+
+.pricing-page .sp-grid {
+  margin-bottom: 0;
+}
+
+.pricing-page-wa img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
 /* ---------- WhatsApp CTA button (green) ---------- */
 .btn-wa {
   background: #25d366;

@@ -13,13 +13,13 @@ export default function ContactSection({ mode }: ContactSectionProps) {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(
-      `Brief / Quote request — ${mode === 'agency' ? 'Agency' : 'Brand'}${name ? ` — ${name}` : ''}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nI am: ${mode === 'agency' ? 'An agency' : 'A brand'}\n\n${message}`
-    );
-    window.location.href = `mailto:studio@lucentstills.com?subject=${subject}&body=${body}`;
+    const text = [
+      `Hi Lucent Stills! I'm ${mode === 'agency' ? 'an agency' : 'a brand'} looking for product visuals.`,
+      name ? `\nName: ${name}` : '',
+      email ? `\nEmail: ${email}` : '',
+      `\n\nBrief: ${message}`,
+    ].join('');
+    window.open(waLink(text), '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -93,7 +93,7 @@ export default function ContactSection({ mode }: ContactSectionProps) {
               />
             </label>
             <button type="submit" className="btn btn-rust magnetic">
-              Send it over
+              Send it over on WhatsApp
             </button>
           </form>
         </div>
