@@ -7,7 +7,7 @@ export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
     base: '/lucent-skills/',
-    publicDir: path.resolve(__dirname, 'Public'),
+    publicDir: path.resolve(__dirname, 'public'),
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
